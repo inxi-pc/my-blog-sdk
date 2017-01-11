@@ -1,0 +1,15 @@
+{
+  "name": "my-blog-sdk",
+  "version": "1.0.0",
+  "description": "My-blog-server Javascript sdk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inxi-pc/my-blog-sdk.git"
+  },
+  "author": "Owen Xiong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inxi-pc/my-blog-sdk/issues"
+  },
+  "homepage": "https://github.com/inxi-pc/my-blog-sdk#readme"
+}
