@@ -1,0 +1,25 @@
+{
+  "name": "my-blog-sdk",
+  "version": "0.0.1",
+  "description": "myblog sdk",
+  "main": "lib/api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inxi-pc/my-blog-sdk.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "xiongbingchao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inxi-pc/my-blog-sdk/issues"
+  },
+  "homepage": "https://github.com/inxi-pc/my-blog-sdk#readme",
+  "devDependencies": {
+      "jwt-decode": "^2.1.0"
+  }
+}

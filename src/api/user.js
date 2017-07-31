@@ -1,6 +1,6 @@
-import API from 'app_lib/api.js'
-import Auth from 'app_api/auth.js'
-import * as Helper from 'app_lib/helper.js'
+import API from '../lib/api.js'
+import Auth from './auth.js'
+import * as Helper from '../lib/helper.js'
 
 class UserModel {
     constructor() {

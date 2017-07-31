@@ -1,4 +1,4 @@
-import * as Helper from 'app_lib/helper.js'
+import * as Helper from './helper.js'
 
 export default class Sort {
     constructor(orderType, orderBy, fallback) {

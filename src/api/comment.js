@@ -1,4 +1,4 @@
-import API from 'app_lib/api.js'
+import API from '../lib/api.js'
 
 class CommentModel {
     constructor() {
