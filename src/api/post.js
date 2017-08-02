@@ -1,6 +1,6 @@
 import API from '../lib/api.js'
 import Auth from './auth.js'
-import * as Helper from '../lib/helper.js'
+import Util from '../lib/util.js'
 
 class PostModel {
   constructor() {
