@@ -19,7 +19,7 @@
     "url": "https://github.com/inxi-pc/my-blog-sdk/issues"
   },
   "homepage": "https://github.com/inxi-pc/my-blog-sdk#readme",
-  "devDependencies": {
+  "dependencies": {
       "jwt-decode": "^2.1.0"
   }
 }
