@@ -3,11 +3,11 @@ import Category from './api/category.js'
 import Comment from './api/comment.js'
 import Post from './api/post.js'
 import User from './api/user.js'
-import Util from './lib/util.js'
+import Helper from './lib/helper.js'
 
 exports.Auth = Auth
 exports.Category = Category
 exports.Comment = Comment
 exports.Post = Post
 exports.User = User
-exports.Util = Util
+exports.Helper = Helper

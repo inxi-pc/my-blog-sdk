@@ -1,5 +1,5 @@
 import JwtDecoder from "jwt-decode"
-import Util from './util.js'
+import Helper from './helper.js'
 
 export default class API {
   constructor(apiGateway) {
@@ -15,7 +15,7 @@ export default class API {
   static mergeParams() {
     var params = {};
     for (var argsKey in arguments) {
-      if (!Util.isNullOrEmpty(arguments[argsKey])) {
+      if (!Helper.isNullOrEmpty(arguments[argsKey])) {
         if (arguments instanceof Object) {
           for (var argKey in arguments[argsKey]) {
             params[argKey] = arguments[argsKey][argKey];
@@ -40,12 +40,12 @@ export default class API {
 
   static responseHandler(response) {
     if (response.status == 401) {
-      Util.gotoModule('auth');
+      Helper.gotoModule('auth');
     }
   }
 
   static getPingInterval() {
-    var interval = Util.getConfig('pingInterval');
+    var interval = Helper.getConfig('pingInterval');
 
     return interval > 1000 ? interval : 30000;
   }
@@ -106,24 +106,24 @@ export default class API {
   static produceAjaxObject(url, method, data, headers, success, error) {
     var ajax = {};
 
-    if (!Util.isNullOrEmpty(url)) {
+    if (!Helper.isNullOrEmpty(url)) {
       ajax['url'] = url;
     }
-    if (!Util.isNullOrEmpty(method)) {
+    if (!Helper.isNullOrEmpty(method)) {
       ajax['method'] = method;
     }
-    if (!Util.isNullOrEmpty(data)) {
+    if (!Helper.isNullOrEmpty(data)) {
       ajax['data'] = data;
     }
-    if (!Util.isNullOrEmpty(headers)) {
+    if (!Helper.isNullOrEmpty(headers)) {
       ajax['headers'] = headers;
     } else {
       ajax['headers'] = requiredHeaders;
     }
-    if (!Util.isNullOrEmpty(success) && success instanceof Function) {
+    if (!Helper.isNullOrEmpty(success) && success instanceof Function) {
       ajax['success'] = success;
     }
-    if (!Util.isNullOrEmpty(error) && error instanceof Function) {
+    if (!Helper.isNullOrEmpty(error) && error instanceof Function) {
       ajax['error'] = error;
     }
 

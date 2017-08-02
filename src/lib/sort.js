@@ -1,4 +1,4 @@
-import Util from './util.js'
+import Helper from './helper.js'
 
 export default class Sort {
   constructor(orderType, orderBy, fallback) {
@@ -11,7 +11,7 @@ export default class Sort {
   }
 
   setOrder_by(orderBy, fallback) {
-    if (!Util.isNullOrEmpty(orderBy)) {
+    if (!Helper.isNullOrEmpty(orderBy)) {
       this.order_by = orderBy;
     } else {
       this.order_by = fallback;
@@ -19,7 +19,7 @@ export default class Sort {
   }
 
   static isDesc(orderType) {
-    if (!Util.isNullOrEmpty(orderType)) {
+    if (!Helper.isNullOrEmpty(orderType)) {
       orderType = orderType.trim().toUpperCase();
 
       return orderType == "DESC";

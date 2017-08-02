@@ -1,4 +1,4 @@
-export default class Util {
+export default class Helper {
   static isNullOrEmpty(value) {
     // null or undefined
     if (value == undefined || value == null) {
