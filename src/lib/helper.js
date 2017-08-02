@@ -14,12 +14,4 @@ export default class Helper {
 
     return false;
   }
-
-  static gotoModule(moduleName) {
-    window.location.href = '/' + moduleName + '.html';
-  }
-
-  static refreshPage() {
-    window.location.reload();
-  }
 }
