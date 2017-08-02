@@ -2,67 +2,67 @@ import API from '../lib/api.js'
 import Helper from '../lib/helper.js'
 
 export default class Auth extends API {
-    constructor() {
-       super();
-       this.apiGateway += '/';
-    }
+  constructor() {
+    super();
+    this.apiGateway += '/';
+  }
 
-    /**
-     *
-     * @return Promise
-     */
-    register(vue, user) {
-        var url = this.apiGateway + 'register';
+  /**
+   *
+   * @return Promise
+   */
+  register(vue, user) {
+    var url = this.apiGateway + 'register';
 
-        return vue.$http.post(url, user);
-    }
+    return vue.$http.post(url, user);
+  }
 
-    /**
-     *
-     * @return Promise
-     */
-    login(vue, user) {
-        var url = this.apiGateway + 'login';
+  /**
+   *
+   * @return Promise
+   */
+  login(vue, user) {
+    var url = this.apiGateway + 'login';
 
-        return vue.$http.post(url, user);
-    }
+    return vue.$http.post(url, user);
+  }
 
-    /**
-     * @return
-     */
-    logout(vue) {
-        Auth.destoryAuthorizedToken();
-        this.clearPingTask();
-    }
+  /**
+   * @return
+   */
+  logout(vue) {
+    Auth.destoryAuthorizedToken();
+    this.clearPingTask();
+  }
 
-    /**
-     * RefreshToken
-     */
-    setPingTask(vue) {
-        this.clearPingTask();
+  /**
+   * RefreshToken
+   */
+  setPingTask(vue) {
+    this.clearPingTask();
 
-        var context = this;
-        var user = Auth.getAuthorizedUser();
-        setInterval(function () {
-            context.ping(vue, user.user_id);
-        }, API.getPingInterval());
-    }
+    var context = this;
+    var user = Auth.getAuthorizedUser();
+    setInterval(function() {
+      context.ping(vue, user.user_id);
+    }, API.getPingInterval());
+  }
 
-    clearPingTask() {
-        clearInterval();
-    }
+  clearPingTask() {
+    clearInterval();
+  }
 
-    ping(vue, userId) {
-        var url = this.apiGateway + 'ping/' + userId;
+  ping(vue, userId) {
+    var url = this.apiGateway + 'ping/' + userId;
 
-        vue.$http.post(url, null, {
-             headers: {
-                Authorization: 'bearer ' + API.getAuthorizedToken()
-            }
-        }).then((response) => {
-            Auth.persistAuthorizedToken(response);
-        }, (response) => {
-            console.log(response);
-        })
-    }
+    vue.$http.post(url, null, {
+      headers: {
+        Authorization: 'bearer ' + API.getAuthorizedToken()
+      }
+    }).then((response) => {
+      Auth.persistAuthorizedToken(response);
+    }, (response) => {
+      console.log(response);
+    })
+  }
 }
