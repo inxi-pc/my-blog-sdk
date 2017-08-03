@@ -3,7 +3,7 @@ import Category from './api/category.js'
 import Comment from './api/comment.js'
 import Post from './api/post.js'
 import User from './api/user.js'
-import Util from './lib/util.js'
+import * as Util from './lib/util.js'
 import API from './lib/api.js'
 
 export default {

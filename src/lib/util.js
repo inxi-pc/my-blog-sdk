@@ -1,5 +1,4 @@
-export default class Util {
-  static isNullOrEmpty(value) {
+function isNullOrEmpty(value) {
     // null or undefined
     if (value == undefined || value == null) {
       return true;
@@ -13,5 +12,6 @@ export default class Util {
     }
 
     return false;
-  }
 }
+
+export { isNullOrEmpty }

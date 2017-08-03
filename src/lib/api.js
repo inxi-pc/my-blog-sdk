@@ -1,5 +1,5 @@
 import JwtDecoder from "jwt-decode"
-import Util from './util.js'
+import * as Util from './util.js'
 
 export default class API {
   constructor(apiGateway) {

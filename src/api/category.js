@@ -1,6 +1,6 @@
 import API from '../lib/api.js'
 import Auth from './auth.js'
-import Util from '../lib/util.js'
+import * as Util from './util.js'
 
 class CategoryModel {
   constructor() {
