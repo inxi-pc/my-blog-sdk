@@ -56,9 +56,7 @@ export default class API {
     }
     if (!Util.isNullOrEmpty(headers)) {
       ajax['headers'] = headers;
-    } else {
-      ajax['headers'] = requiredHeaders;
-    }
+    } 
     if (!Util.isNullOrEmpty(success) && success instanceof Function) {
       ajax['success'] = success;
     }
