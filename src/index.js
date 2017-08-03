@@ -5,7 +5,7 @@ import Post from './api/post.js'
 import User from './api/user.js'
 import Helper from './lib/helper.js'
 
-exports default {
+export default {
   Auth: Auth,
   Category: Category,
   Comment: Comment,
