@@ -34,7 +34,7 @@ export default class User extends API {
 
     return vue.$http.user(this.apiGateway, create, {
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -48,7 +48,7 @@ export default class User extends API {
 
     return vue.$http.delete(url, {
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -68,7 +68,7 @@ export default class User extends API {
 
     return vue.$http.put(url, update, {
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -82,7 +82,7 @@ export default class User extends API {
 
     return vue.$http.get(url, {
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -114,7 +114,7 @@ export default class User extends API {
     return vue.$http.get(url, {
       params: params,
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -129,7 +129,7 @@ export default class User extends API {
     return vue.$http.get(this.apiGateway, {
       params: params,
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }

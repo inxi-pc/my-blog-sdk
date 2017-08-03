@@ -2,9 +2,10 @@ import API from '../lib/api.js'
 import * as Util from '../lib/util.js'
 
 export default class Auth extends API {
-  constructor() {
+  constructor(pingInterval) {
     super();
     this.apiGateway += '/';
+    this.pingInterval = pingInterval;
   }
 
   /**
@@ -24,7 +25,16 @@ export default class Auth extends API {
   login(vue, user) {
     var url = this.apiGateway + 'login';
 
-    return vue.$http.post(url, user);
+    vue.$http.post(url, user).then(response => {
+      Auth.persistAuthorizedToken(response);
+      return new Promise((resolve, reject) => {
+        resolve(response)
+      });
+    }, response => {
+      return new Promise((resolve, reject) => {
+        reject(response)
+      });
+    });
   }
 
   /**
@@ -45,7 +55,7 @@ export default class Auth extends API {
     var user = Auth.getAuthorizedUser();
     setInterval(function() {
       context.ping(vue, user.user_id);
-    }, API.getPingInterval());
+    }, this.pingInterval);
   }
 
   clearPingTask() {
@@ -57,12 +67,59 @@ export default class Auth extends API {
 
     vue.$http.post(url, null, {
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     }).then((response) => {
       Auth.persistAuthorizedToken(response);
     }, (response) => {
       console.log(response);
     })
+  }
+
+  /**
+   * Store Authorization token
+   */
+  static persistAuthorizedToken(response) {
+    sessionStorage.setItem('token', response.body.token);
+  }
+
+  /**
+   * Destroy Authorization token
+   */
+  static destoryAuthorizedToken() {
+    sessionStorage.removeItem('token');
+  }
+
+  /**
+   * Get Authorization token
+   */
+  static getAuthorizedToken() {
+    return sessionStorage.getItem("token");
+  }
+
+  /**
+   * Get Authorization user
+   */
+  static getAuthorizedUser() {
+    var token = Auth.getAuthorizedToken();
+
+    try {
+      return JwtDecoder(token);
+    } catch (e) {
+      // todo
+    }
+  }
+
+  /**
+   *
+   * Generate authorized ajax object for 3rd library, like datatables
+   */
+  static produceAuthorizedAjaxObject(url, method, data, headers, success, error) {
+    var requiredHeaders = {
+      Authorization: "bearer " + Auth.getAuthorizedToken()
+    };
+    var headers = API.mergeParams(requiredHeaders, headers);
+
+    return API.produceAjaxObject(url, method, data, headers, success, error);
   }
 }

@@ -37,7 +37,7 @@ export default class Category extends API {
 
     return vue.$http.post(this.apiGateway, create, {
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -51,7 +51,7 @@ export default class Category extends API {
 
     return vue.$http.delete(url, {
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -75,7 +75,7 @@ export default class Category extends API {
 
     return vue.$http.put(url, update, {
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -88,7 +88,7 @@ export default class Category extends API {
 
     return vue.$http.get(url, {
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -100,7 +100,7 @@ export default class Category extends API {
   getCategoriesByIds(vue, categoryIds) {
     return this.getCategories(categoryIds, {
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -112,7 +112,7 @@ export default class Category extends API {
   getCategoriesByCondition(vue, conditions) {
     return this.getCategories(vue, conditions, {
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -127,7 +127,7 @@ export default class Category extends API {
     return vue.$http.get(url, {
       params: params,
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -141,7 +141,7 @@ export default class Category extends API {
     return vue.$http.get(this.apiGateway, {
       params: params,
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -159,7 +159,7 @@ export default class Category extends API {
     return vue.$http.get(url, {
       params: params,
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }
@@ -176,7 +176,7 @@ export default class Category extends API {
     return vue.$http.get(this.apiGateway, {
       params: params,
       headers: {
-        Authorization: 'bearer ' + API.getAuthorizedToken()
+        Authorization: 'bearer ' + Auth.getAuthorizedToken()
       }
     });
   }

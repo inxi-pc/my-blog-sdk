@@ -38,67 +38,6 @@ export default class API {
     return clone;
   }
 
-  static responseHandler(response) {
-    if (response.status == 401) {
-      Util.gotoModule('auth');
-    }
-  }
-
-  static getPingInterval() {
-    var interval = Util.getConfig('pingInterval');
-
-    return interval > 1000 ? interval : 30000;
-  }
-
-  /**
-   * Store Authorization token
-   */
-  static persistAuthorizedToken(response) {
-    sessionStorage.setItem('token', response.body.token);
-  }
-
-  /**
-   * Destroy Authorization token
-   */
-  static destoryAuthorizedToken() {
-    sessionStorage.removeItem('token');
-  }
-
-  /**
-   * Get Authorization token
-   */
-  static getAuthorizedToken() {
-    return sessionStorage.getItem("token");
-  }
-
-  /**
-   * Get Authorization user
-   */
-  static getAuthorizedUser() {
-    var token = API.getAuthorizedToken();
-
-    try {
-      return JwtDecoder(token);
-    } catch (e) {
-      API.responseHandler({
-        status: 401
-      });
-    }
-  }
-
-  /**
-   *
-   * Generate authorized ajax object for 3rd library, like datatables
-   */
-  static produceAuthorizedAjaxObject(url, method, data, headers, success, error) {
-    var requiredHeaders = {
-      Authorization: "bearer " + API.getAuthorizedToken()
-    };
-    var headers = API.mergeParams(requiredHeaders, headers);
-
-    return API.produceAjaxObject(url, method, data, headers, success, error);
-  }
-
   /**
    *
    * Basic ajax generation method
