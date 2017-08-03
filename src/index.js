@@ -4,7 +4,7 @@ import Comment from './api/comment.js'
 import Post from './api/post.js'
 import User from './api/user.js'
 import Util from './lib/util.js'
-import Api from './lib/api.js'
+import API from './lib/api.js'
 
 export default {
   Auth: Auth,
@@ -13,5 +13,5 @@ export default {
   Post: Post,
   User: User,
   Util: Util,
-  Api: Api
+  API: API
 }
