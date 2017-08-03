@@ -3,7 +3,8 @@ import Category from './api/category.js'
 import Comment from './api/comment.js'
 import Post from './api/post.js'
 import User from './api/user.js'
-import Helper from './lib/helper.js'
+import Util from './lib/util.js'
+import Api from './lib/api.js'
 
 export default {
   Auth: Auth,
@@ -11,5 +12,6 @@ export default {
   Comment: Comment,
   Post: Post,
   User: User,
-  Helper: Helper
+  Util: Util,
+  Api: Api
 }

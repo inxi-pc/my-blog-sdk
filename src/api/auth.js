@@ -1,5 +1,5 @@
 import API from '../lib/api.js'
-import Helper from '../lib/helper.js'
+import Util from '../lib/util.js'
 
 export default class Auth extends API {
   constructor() {
