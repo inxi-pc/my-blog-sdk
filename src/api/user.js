@@ -1,6 +1,6 @@
 import API from '../lib/api.js'
 import Auth from './auth.js'
-import * as Util from './util.js'
+import * as Util from '../lib/util.js'
 
 class UserModel {
   constructor() {
