@@ -26,8 +26,8 @@ export {
 }
 
 export default class Post extends API {
-  constructor() {
-    super();
+  constructor(apiGateway) {
+    super(apiGateway);
     this.apiGateway += '/posts/';
     this.listApiGateway = this.apiGateway + 'list';
   }

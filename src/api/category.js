@@ -22,8 +22,8 @@ export {
 }
 
 export default class Category extends API {
-  constructor() {
-    super();
+  constructor(apiGateway) {
+    super(apiGateway);
     this.apiGateway += "/categories/";
     this.listApiGateway = this.apiGateway + 'list';
   }

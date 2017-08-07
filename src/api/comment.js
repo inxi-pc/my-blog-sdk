@@ -17,8 +17,8 @@ class CommentModel {
 }
 
 export default class Comment extends API {
-  constructor() {
-    super();
+  constructor(apiGateway) {
+    super(apiGateway);
     this.apiGateway += '/comments/';
   }
 }

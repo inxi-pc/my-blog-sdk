@@ -2,8 +2,8 @@ import API from '../lib/api.js'
 import * as Util from '../lib/util.js'
 
 export default class Auth extends API {
-  constructor(pingInterval) {
-    super();
+  constructor(apiGateway, pingInterval) {
+    super(apiGateway);
     this.apiGateway += '/';
     this.pingInterval = pingInterval;
   }

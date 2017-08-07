@@ -19,8 +19,8 @@ export {
 };
 
 export default class User extends API {
-  constructor() {
-    super();
+  constructor(apiGateway) {
+    super(apiGateway);
     this.apiGateway += '/users/';
     this.listApiGateway = this.apiGateway + 'list';
   }
