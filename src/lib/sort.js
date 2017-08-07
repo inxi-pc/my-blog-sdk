@@ -20,7 +20,7 @@ export default class Sort {
 
   static isDesc(orderType) {
     if (!Util.isNullOrEmpty(orderType)) {
-      orderType = orderType.trim().toUpperCase();
+      orderType = String(orderType).trim().toUpperCase();
 
       return orderType == "DESC";
     } else {
