@@ -5,6 +5,8 @@ import Post from './api/post.js'
 import User from './api/user.js'
 import * as Util from './lib/util.js'
 import API from './lib/api.js'
+import Sort from './lib/sort.js'
+import Pagination from './lib/sort.js'
 
 export default {
   Auth: Auth,
@@ -13,5 +15,7 @@ export default {
   Post: Post,
   User: User,
   Util: Util,
-  API: API
+  API: API,
+  Sort: Sort,
+  Pagination: Pagination
 }
